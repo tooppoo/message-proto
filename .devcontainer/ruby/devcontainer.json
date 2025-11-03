@@ -1,0 +1,23 @@
+{
+  "name": "Ruby Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/ruby:3.3",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "22"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "ruby.useLanguageServer": true,
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "Shopify.ruby-lsp",
+        "rebornix.Ruby"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}
