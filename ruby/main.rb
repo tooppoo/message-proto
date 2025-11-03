@@ -4,15 +4,12 @@ require_relative 'src/hand'
 require_relative 'src/player'
 require_relative 'src/strategy'
 
-players = [
-  Player.new('Hoge', Strategy::Only.use(       Hand::ROCK)),
-  Player.new('Fuga', Strategy::Sequence.order([Hand::ROCK, Hand::PAPER, Hand::SCISSORS])),
-  Player.new('Piyo', Strategy::Sequence.order([Hand::PAPER, Hand::SCISSORS, Hand::ROCK, Hand::ROCK, Hand::SCISSORS])),
-]
+rockman = Player.new('RockMan', Strategy::Only.use(Hand::ROCK))
+players = [rockman] + (10.times.map { |i| Player.new("Rnd#{i + 1}", Strategy::Random.new) })
 
 game = Game.new(players)
 
-5.times do
+until rockman.win >= 10
   game.play
 end
 

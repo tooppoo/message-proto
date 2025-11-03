@@ -1,5 +1,11 @@
 
 module Strategy
+  class Random
+    def select
+      [Hand::ROCK, Hand::SCISSORS, Hand::PAPER].sample
+    end
+  end
+
   class Only
     def self.use(hand)
       new(hand)
